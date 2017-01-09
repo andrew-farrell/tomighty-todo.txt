@@ -1,0 +1,3 @@
+(A) must complete work on +theproject @pomo-0 @now
+ok this is another about +someother project
+(C) do work on jira:MAPPROJ-102
