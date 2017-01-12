@@ -26,7 +26,7 @@ public class TaskIoTest {
         int expectedSize = 1;
         assertEquals(expectedSize, tasksFiltered.size());
 
-        assertEquals(tasksFiltered.get(0).getOriginalText(), "(A) must complete work on +theproject @pomo-0 @now");
+        assertEquals( "must complete work on +theproject @pomo-0 @now",tasksFiltered.get(0).getText());
         
     }
 }
