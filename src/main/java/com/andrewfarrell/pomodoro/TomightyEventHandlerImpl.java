@@ -59,8 +59,8 @@ public class TomightyEventHandlerImpl implements TomightyEventHandler {
                                 newText.append(" "+"pomo-state="+label) ;
                             else if(token.startsWith("pomo-time"))
                                 newText.append(" "+"pomo-time="+time);
-                            else if(token.startsWith("pomo-done"))
-                                newText.append(" "+"pomo-done="+getPCount(token,label,phase));
+                            else if(token.startsWith("pomo-count"))
+                                newText.append(" "+"pomo-count="+phase.ordinal()/*getPCount(token,label,phase)*/);
                             else
                                 newText.append(" "+token);
                         }
