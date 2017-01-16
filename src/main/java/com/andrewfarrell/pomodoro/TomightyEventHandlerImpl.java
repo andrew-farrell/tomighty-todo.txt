@@ -21,17 +21,17 @@ import static com.todotxt.todotxttouch.util.TaskIo.*;
  */
 public class TomightyEventHandlerImpl implements TomightyEventHandler {
     public void handleTimerFinished(TimerFinished timerFinished) {
-        //String format = String.format("Plugin > timer finished phase = %s, time = %s", timerFinished.getPhase(), timerFinished.getTime());
+
         toTodoDotTxt(timerFinished.getPhase(), timerFinished.getTime(),"FINISHED");
     }
 
     public void handleTimerStarted(TimerStarted timerStarted) {
-        //String format = String.format("Plugin > timer started phase = %s, time = %s", timerStarted.getPhase(), timerStarted.getTime());
+
         toTodoDotTxt(timerStarted.getPhase(), timerStarted.getTime(), "STARTED");
     }
 
     public void handleTimerInterrupted(TimerInterrupted timerInterrupted) {
-        //String format = String.format("Plugin > timer interrupted phase = %s, time = %s", timerInterrupted.getPhase(), timerInterrupted.getTime());
+
         toTodoDotTxt(timerInterrupted.getPhase(), timerInterrupted.getTime(), "INTERRUPTED");
     }
 
@@ -60,7 +60,7 @@ public class TomightyEventHandlerImpl implements TomightyEventHandler {
                             else if(token.startsWith("pomo-time"))
                                 newText.append(" "+"pomo-time="+time);
                             else if(token.startsWith("pomo-count"))
-                                newText.append(" "+"pomo-count="+phase.ordinal()/*getPCount(token,label,phase)*/);
+                                newText.append(" "+"pomo-count="+getPCount(token,label,phase));
                             else
                                 newText.append(" "+token);
                         }

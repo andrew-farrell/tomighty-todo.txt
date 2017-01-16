@@ -22,6 +22,9 @@
  */
 package com.todotxt.todotxttouch.task;
 
+import com.todotxt.todotxttouch.util.RelativeDate;
+import com.todotxt.todotxttouch.util.Strings;
+
 import java.io.Serializable;
 import java.net.URL;
 import java.text.ParseException;
@@ -29,9 +32,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import com.todotxt.todotxttouch.util.RelativeDate;
-import com.todotxt.todotxttouch.util.Strings;
 
 @SuppressWarnings("serial")
 public class Task implements Serializable {
@@ -216,7 +216,7 @@ public class Task implements Serializable {
 		StringBuilder sb = new StringBuilder();
 		sb.append(inFileFormatHeader());
 		sb.append(this.text);
-		return sb.toString();
+		return sb.toString().replaceAll("^\\s+", "");
 	}
 	
 	public String inFileFormatHeader() {
