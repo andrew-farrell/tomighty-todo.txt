@@ -50,7 +50,7 @@ public class TomightyEventHandlerImpl implements TomightyEventHandler {
 
             for(Task task : tasks){
                 if(task.getContexts().contains("now")) {
-                    if(task.getText().contains("pomo-phase=")){
+                    if(task.getText().contains("∑=")){
                         StringBuilder newText = new StringBuilder();
                         for(String token : task.toString().split(" ")){
                             if(token.startsWith("pomo-phase="))
@@ -59,15 +59,15 @@ public class TomightyEventHandlerImpl implements TomightyEventHandler {
                                 newText.append(" "+"pomo-state="+label) ;
                             else if(token.startsWith("pomo-time"))
                                 newText.append(" "+"pomo-time="+time);
-                            else if(token.startsWith("pomo-count"))
-                                newText.append(" "+"pomo-count="+getPCount(token,label,phase));
+                            else if(token.startsWith("∑"))
+                                newText.append(" "+"∑="+getPCount(token,label,phase));
                             else
                                 newText.append(" "+token);
                         }
                         task.update(newText.toString());
                     }
                     else{
-                        task.update(task.toString()+String.format(" pomodoro{ pomo-phase=%s pomo-state=%s pomo-count=%s pomo-time=%s }", phase, label, "0",time));
+                        task.update(task.toString()+String.format(" pomodoro{  ∑=%s  }", (label.equals("FINISHED") && phase.equals(Phase.POMODORO))?"1":"0"));
                     }
 
                 }
